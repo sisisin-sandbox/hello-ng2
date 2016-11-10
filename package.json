@@ -4,9 +4,32 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
+    "bundle": "browserify ./tmp/index.js -o ./bundle.js",
+    "bundle:w": "watchify ./tmp/index.js -o ./bundle.js -v",
+    "build": "npm run tsc && npm run bundle",
+    "watch": "npm-run-all --parallel tsc:w bundle:w"
   },
   "keywords": [],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@angular/common": "^2.1.2",
+    "@angular/compiler": "^2.1.2",
+    "@angular/core": "^2.1.2",
+    "@angular/platform-browser": "^2.1.2",
+    "@angular/platform-browser-dynamic": "^2.1.2",
+    "core-js": "^2.4.1",
+    "rxjs": "^5.0.0-beta.12",
+    "zone.js": "^0.6.26"
+  },
+  "devDependencies": {
+    "@types/core-js": "^0.9.34",
+    "@types/node": "^6.0.46",
+    "browserify": "^13.1.1",
+    "npm-run-all": "^3.1.1",
+    "typescript": "^2.0.8",
+    "watchify": "^3.7.0"
+  }
 }
